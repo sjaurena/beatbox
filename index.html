@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Global Game Jam 2013</title>
+        <meta charset="utf8"></meta>
+    </head>
+    <body>
+        <audio id="music" src="music/Go.ogg" controls=""></audio><br>
+        <script type="text/javascript">
+    
+            // http://www.jamendo.com/en/artist/7872/josh-woodward
+    
+            var audio = document.getElementById('music');
+            var results = document.getElementById('results');
+            
+            audio.loop = false;
+            audio.volume = 1.0;
+            audio.play();
+
+            audio.addEventListener('MozAudioAvailable', writeSamples, false);
+            audio.addEventListener('loadedmetadata', getMetadata, false);
+
+            var fbLength, channels;
+
+            function getMetadata() {
+                channels = audio.mozChannels;
+                fbLength = audio.mozFrameBufferLength;
+            }
+
+            function writeSamples(event){
+                
+                var data = event.frameBuffer;
+                
+                var samples = 512;
+                var step = (fbLength / channels) / samples;
+                var total = 0;
+                for(var i=1; i < samples; i++){
+                    total += data[i*step];
+                }
+                
+                var min = Math.min.apply(null,data);
+                var max = Math.max.apply(null,data);
+                
+                var value = Math.round((max - min) * 10) / 10;
+                
+                if(value > 1.7){
+                    console.log(event.time + ' : ' + value);
+                }
+            }
+
+        </script>
+    </body>
+</html>
