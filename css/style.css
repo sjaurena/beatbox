@@ -16,11 +16,38 @@ html , body {
 	margin-top: -208px;
 }
 
-#main-menu {
+canvas{
+    background: #ccc;
+}
+
+#progress{
+    position: absolute;
+    width: 280px;
+    margin-left: 20px;
+    bottom: 0;
+    margin-bottom: 25px;
+    height: 15px;
+    border-radius: 5px;
+    background-image:-moz-linear-gradient(rgba(255,255,255,0.15),rgba(0,0,0,0.15));
+    background-color:#fff;
+}
+
+#progress-bar{
+    height: 15px;
+    width: 50%;
+    background-image:-moz-linear-gradient(rgba(255,255,255,0.15),rgba(0,0,0,0.15));
+    background-color:#999;
+    margin-bottom: 15px;
+    height: 15px;
+    border-radius: 5px;    
+}
+
+#main-menu, #results {
 	padding-top:78px;
 }
 
-#main-menu a {
+#main-menu a,
+#results a{
 	display:block;
 	width:260px;
 	text-align:center;
@@ -51,7 +78,7 @@ html , body {
 	background-image:-webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,0.15)), to(rgba(255,255,255,0.15)));
 }
 
-#game h1 {
+#results h1 {
 	font-family:Slackey;
 	text-align:center;
 	height:40px;
@@ -60,6 +87,28 @@ html , body {
 	padding-top:0px;
 	color:#fff;
 	text-shadow:#000 0px 1px 0px;
+}
+
+#results .score {
+	font-family:Slackey;
+	text-align:center;
+	height:40px;
+	line-height:40px;
+	font-size:20px;
+	padding-top:0px;
+	color:#fff;
+	text-shadow:#000 0px 1px 0px;
+}
+
+#results .score-detail {
+	font-family:Slackey;
+	text-align:center;
+	line-height:40px;
+	font-size:18px;
+	padding-top:0px;
+	color:#fff;
+	text-shadow:#000 0px 1px 0px;
+    margin-bottom: 10px;
 }
 
 #game .message {
